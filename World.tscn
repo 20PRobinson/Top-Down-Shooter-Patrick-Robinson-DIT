@@ -51,7 +51,19 @@ scale = Vector2( 3.89844, 3.89844 )
 texture = ExtResource( 6 )
 shadow_enabled = true
 
+[node name="Enemy4" parent="." instance=ExtResource( 3 )]
+
+[node name="Enemy3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 732, 91 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 794, 268 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 441, 331 )
+
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 590, -1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
