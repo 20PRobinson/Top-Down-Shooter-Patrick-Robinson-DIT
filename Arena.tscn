@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Arena.gd" type="Script" id=2]
+[ext_resource path="res://Rubik-VariableFont_wght.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://score.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+font_data = ExtResource( 3 )
+
+[node name="Arena" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="UI" type="Node2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+z_index = 20
+
+[node name="Control" type="Control" parent="UI"]
+margin_top = 8.87
+margin_right = 640.0
+margin_bottom = 368.87
+
+[node name="score" type="Label" parent="UI/Control"]
+margin_left = 662.0
+margin_top = -8.87
+margin_right = 1942.0
+margin_bottom = 143.13
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 498, 304 )
+
+[node name="Enemy_spawn_timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -1, 0 )
+anchor_mode = 0
+current = true
+
+[node name="Difficulty_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Enemy_spawn_timer" to="." method="_on_Enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="Difficulty_timer" to="." method="_on_Difficulty_timer_timeout"]

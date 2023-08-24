@@ -1,19 +1,21 @@
-extends KinematicBody2D
+extends Sprite
 
-var motion = Vector2()
+var speed = 100
 
-func _ready():
-	pass # Replace with function body.
+var velocity = Vector2()
+var hp = 1
 
-func _physics_process(delta):
-	var Player = get_parent().get_node("Player")
+func _process(delta):
+	if Global.player != null:
+		velocity = global_position.direction_to(Global.player.global_position)
+		
+	global_position += velocity * speed * delta
 	
-	position += (Player.position - position)/50
-	look_at(Player.position)
-	
-	move_and_collide(motion)
-
-
-func _on_Area2D_body_entered(body):
-	if "Bullet" in body.name:
+	if hp <= 0:
+		Global.points += 10
 		queue_free()
+
+func _on_Hitbox_area_entered(area):
+	if area.is_in_group("Enemy_damager"):
+		hp -= 1
+		area.get_parent().queue_free()
