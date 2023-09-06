@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Top Down Shooter Light.png-0d642c80b238bd39af5eaaffe736b1b2.stex"
+path="res://.import/Top Down Shooter Background.png-ceeca806dd92c1b30aabe72d93ffa839.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Top Down Shooter Light.png"
-dest_files=[ "res://.import/Top Down Shooter Light.png-0d642c80b238bd39af5eaaffe736b1b2.stex" ]
+source_file="res://Top Down Shooter Background.png"
+dest_files=[ "res://.import/Top Down Shooter Background.png-ceeca806dd92c1b30aabe72d93ffa839.stex" ]
 
 [params]
 
