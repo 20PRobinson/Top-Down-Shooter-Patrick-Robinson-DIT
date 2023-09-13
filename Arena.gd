@@ -1,6 +1,7 @@
 extends Node2D
 
 var enemy_1 = preload("res://Enemy.tscn")
+var enemy_2 = preload("res://Enemy2.tscn")
 
 func _ready():
 	Global.node_creation_parent = self
@@ -17,6 +18,10 @@ func _on_Enemy_spawn_timer_timeout():
 		enemy_position = Vector2(rand_range(-160, 1024), rand_range(-90, 600))
 		
 	Global.instance_node(enemy_1, enemy_position, self)
+	
+	if Global.points > 100:
+		Global.instance_node(enemy_2, enemy_position, self)
+		
 	$Enemy_spawn_timer.wait_time *= 0.95
 
 func _on_Difficulty_timer_timeout():

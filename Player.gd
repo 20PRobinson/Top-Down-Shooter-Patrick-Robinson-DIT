@@ -17,6 +17,8 @@ func _exit_tree():
 
 
 func _process(delta):
+	
+	look_at(get_global_mouse_position())
 	velocity.x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	velocity.y = int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
 	

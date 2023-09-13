@@ -1,16 +1,16 @@
 extends Sprite
 
-var speed = 100
+var speed = 300
 
 var velocity = Vector2()
 
 var stun = false
-var hp = 3
+var hp = 2
 
 var blood_particles = preload("res://Blood_particles.tscn")
 
 func _process(delta):
-
+	
 	look_at(Global.player.global_position)	
 	if Global.player != null and stun == false:
 		velocity = global_position.direction_to(Global.player.global_position)

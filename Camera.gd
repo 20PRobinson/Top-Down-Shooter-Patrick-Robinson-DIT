@@ -12,7 +12,7 @@ func _exit_tree():
 	
 	
 func _process(delta):
-	zoom = lerp(zoom, Vector2(1, 1), 0.3)
+	zoom = lerp(zoom, Vector2(1, 1), 0.5)
 	
 	if screen_shake_start == true:
 		global_position += Vector2(rand_range(-shake_intensity, shake_intensity), rand_range(-shake_intensity, shake_intensity)) * delta
