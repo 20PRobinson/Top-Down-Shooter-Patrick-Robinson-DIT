@@ -9,6 +9,8 @@ var hp = 3
 
 var blood_particles = preload("res://Blood_particles.tscn")
 
+onready var splat = $splat
+
 func _process(delta):
 
 	look_at(Global.player.global_position)	
@@ -19,6 +21,7 @@ func _process(delta):
 		
 	global_position += velocity * speed * delta
 	
+		
 	if hp <= 0:
 		if Global.node_creation_parent != null:
 			var blood_particles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)
@@ -31,6 +34,7 @@ func _process(delta):
 	
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damager"):
+		splat.play()
 		modulate = Color.red
 		velocity = -velocity * 4
 		hp -= 1

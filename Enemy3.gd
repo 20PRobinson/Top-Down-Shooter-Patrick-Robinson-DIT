@@ -1,18 +1,18 @@
 extends Sprite
 
-var speed = 300
+var speed = 40
 
 var velocity = Vector2()
 
 var stun = false
-var hp = 2
+var hp = 6
 
 var blood_particles = preload("res://Blood_particles.tscn")
 
 onready var splat = $splat
 
 func _process(delta):
-	
+
 	look_at(Global.player.global_position)	
 	if Global.player != null and stun == false:
 		velocity = global_position.direction_to(Global.player.global_position)
@@ -21,6 +21,7 @@ func _process(delta):
 		
 	global_position += velocity * speed * delta
 	
+		
 	if hp <= 0:
 		if Global.node_creation_parent != null:
 			var blood_particles_instance = Global.instance_node(blood_particles, global_position, Global.node_creation_parent)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Warehouse Massacre.png" type="Texture" id=2]
+[ext_resource path="res://9mm-pistol-shot-6349.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.6735, 18.1508 )
@@ -18,5 +19,10 @@ script = ExtResource( 1 )
 position = Vector2( -0.653063, 0.336288 )
 scale = Vector2( 0.999999, 1 )
 shape = SubResource( 1 )
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -6.992
+pitch_scale = 1.56
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
